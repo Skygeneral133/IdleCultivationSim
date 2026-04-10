@@ -7,40 +7,52 @@ public class PlayerStats : MonoBehaviour
 {
     public int maxHp = 10;
     public int maxMana = 10;
+    
     public double baseAttack = 1;
     public double baseDefense = 1;
     public double baseSpeed = 1;
-    private Body Body = new Body();
-    public TextMeshProUGUI[] statBodyTexts;
-    public Button[] bodyStatButtons;
-    public Spirit Spirit;
-    public ChiController ChiController;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Body Body = new Body();
+    public Spirit Spirit = new Spirit();
+
+    public ChiController chiController;
+
+
+    public bool CanUpgradeBodyStat(BodyStatType type)
     {
-        int i = 0;
-        foreach (BodyStatType type in System.Enum.GetValues(typeof(BodyStatType)))
+        Stat currentStat = Body.GetStat(type);
+        return currentStat.upgradeCost < chiController.getChiCount();
+    }
+    
+    public bool CanUpgradeSpiritStat(SpiritStatType type)
+    {
+        Stat currentStat = Spirit.GetStat(type);
+        return currentStat.upgradeCost < chiController.getChiCount();
+    }
+
+    public void TryUpgradeBodyStat(BodyStatType type)
+    {
+        Stat currentStat = Body.GetStat(type);
+        if (currentStat.upgradeCost < chiController.getChiCount())
         {
-            Body.GetStat(type).setTextGui(statBodyTexts[i]);
-            Body.GetStat(type).setUpgradeButton(bodyStatButtons[i]);
-            BodyStatType capturedType = type;
-            bodyStatButtons[i].onClick.AddListener(() => UpgradeBodyStat(capturedType));
-            i++;
+            UpgradeBodyStat(type);
         }
     }
 
-    public void CheckButtonsInteractable()
+    public void TryUpgradeSpiritStat(SpiritStatType type)
     {
-        foreach (BodyStatType type in System.Enum.GetValues(typeof(BodyStatType)))
+        Stat currentStat = Spirit.GetStat(type);
+        if (currentStat.upgradeCost < chiController.getChiCount())
         {
-            Body.GetStat(type).getUpgradeButton().interactable = !(Body.GetStat(type).upgradeCost > ChiController.getChiCount());
+            currentStat.addValue(1);
+            chiController.minusChiCount(currentStat.upgradeCost);
         }
     }
+    
 
     private void UpgradeBodyStat(BodyStatType type)
     {
-        ChiController.minusChiCount(Body.GetStat(type).upgradeCost);
+        chiController.minusChiCount(Body.GetStat(type).upgradeCost);
         Body.GetStat(type).addValue(1);
         
         switch(type)

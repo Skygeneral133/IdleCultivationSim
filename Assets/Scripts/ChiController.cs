@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -7,7 +6,8 @@ public class ChiController : MonoBehaviour
 {
     [SerializeField]
     private float chiCount;
-    public PlayerStats playerStats;
+
+    public static event Action<float> OnChiChanged;
     public TextMeshProUGUI chiCountText;
     public float chiProgressRate;
     public ProgressBar chiProgress;
@@ -29,12 +29,14 @@ public class ChiController : MonoBehaviour
     {
         chiCount += value;
         chiCountText.text = chiCount.ToString();
+        OnChiChanged?.Invoke(value);
     }
 
     public void minusChiCount(float value)
     {
         chiCount -= value;
         chiCountText.text = chiCount.ToString();
+        OnChiChanged?.Invoke(value);
     }
 
     void UpdateChiCountProgress()
@@ -48,11 +50,10 @@ public class ChiController : MonoBehaviour
     {
         if (chiProgress.current >= chiProgress.maximum)
         {
-            chiCount += chiIncreaseRate;
+            addChiCount(chiIncreaseRate);
             chiProgress.current = 0;
             chiProgress.GetCurrentFill();
             chiCountText.text = chiCount.ToString();
-            playerStats.CheckButtonsInteractable();
         }
     }
 }

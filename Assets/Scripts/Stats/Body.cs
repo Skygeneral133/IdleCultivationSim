@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 
 public class Body
 {
@@ -8,7 +6,6 @@ public class Body
     
     public Body()
     {
-        // initialize stats
         foreach (BodyStatType statType in System.Enum.GetValues(typeof(BodyStatType)))
         {
             stats[statType] = new Stat();

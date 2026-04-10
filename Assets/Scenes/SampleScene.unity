@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 127963038}
   - component: {fileID: 127963039}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: muscleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 296525377}
   - component: {fileID: 296525376}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: fireText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 534659745}
   - component: {fileID: 534659744}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: metalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1922,7 +1922,7 @@ GameObject:
   - component: {fileID: 882673006}
   - component: {fileID: 882673007}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: organText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2992,7 +2992,7 @@ GameObject:
   - component: {fileID: 1169286368}
   - component: {fileID: 1169286367}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: earthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3129,7 +3129,7 @@ GameObject:
   - component: {fileID: 1256949287}
   - component: {fileID: 1256949288}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: tendonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3266,7 +3266,7 @@ GameObject:
   - component: {fileID: 1267809647}
   - component: {fileID: 1267809648}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: skeletonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3403,7 +3403,7 @@ GameObject:
   - component: {fileID: 1307696847}
   - component: {fileID: 1307696848}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: reactionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3773,6 +3773,7 @@ GameObject:
   - component: {fileID: 1443828559}
   - component: {fileID: 1443828558}
   - component: {fileID: 1443828560}
+  - component: {fileID: 1443828561}
   m_Layer: 0
   m_Name: centralController
   m_TagString: Untagged
@@ -3793,9 +3794,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chiCount: 0
-  playerStats: {fileID: 1443828560}
   chiCountText: {fileID: 1046511248}
-  chiProgressRate: 20
+  chiProgressRate: 50
   chiProgress: {fileID: 1405146120}
   chiIncreaseRate: 1
 --- !u!4 &1443828559
@@ -3830,19 +3830,44 @@ MonoBehaviour:
   baseAttack: 0
   baseDefense: 0
   baseSpeed: 0
-  statBodyTexts:
-  - {fileID: 1256949288}
-  - {fileID: 1267809648}
-  - {fileID: 882673007}
-  - {fileID: 127963039}
-  - {fileID: 1307696848}
+  chiController: {fileID: 1443828558}
+--- !u!114 &1443828561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443828557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  playerStats: {fileID: 1443828560}
   bodyStatButtons:
   - {fileID: 148086852}
   - {fileID: 469137050}
   - {fileID: 935538704}
   - {fileID: 1917253699}
   - {fileID: 670653396}
-  ChiController: {fileID: 1443828558}
+  statBodyTexts:
+  - {fileID: 1256949288}
+  - {fileID: 1267809648}
+  - {fileID: 882673007}
+  - {fileID: 127963039}
+  - {fileID: 1307696848}
+  spiritStatButtons:
+  - {fileID: 1718774821}
+  - {fileID: 738150022}
+  - {fileID: 1720832202}
+  - {fileID: 886582417}
+  - {fileID: 1698803858}
+  statSpritTexts:
+  - {fileID: 296525376}
+  - {fileID: 1629671795}
+  - {fileID: 1169286367}
+  - {fileID: 1501515662}
+  - {fileID: 534659744}
 --- !u!1 &1487191836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4070,7 +4095,7 @@ GameObject:
   - component: {fileID: 1501515663}
   - component: {fileID: 1501515662}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: woodText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4435,7 +4460,7 @@ GameObject:
   - component: {fileID: 1629671796}
   - component: {fileID: 1629671795}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: waterText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
