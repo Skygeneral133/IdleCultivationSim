@@ -1,6 +1,8 @@
-using TMPro;
+using System;
+using System.Collections.Generic;
+using Enums;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 
 public class PlayerStats : MonoBehaviour
@@ -12,72 +14,49 @@ public class PlayerStats : MonoBehaviour
     public double baseDefense = 1;
     public double baseSpeed = 1;
     
-    public Body Body = new Body();
-    public Spirit Spirit = new Spirit();
+    public Dictionary<StatTypes, Stat> stats = new Dictionary<StatTypes, Stat>();
+    public Action<StatTypes, Stat> onStatChange;
 
     public ChiController chiController;
 
-
-    public bool CanUpgradeBodyStat(BodyStatType type)
+    public void Awake()
     {
-        Stat currentStat = Body.GetStat(type);
-        return currentStat.upgradeCost < chiController.getChiCount();
-    }
-    
-    public bool CanUpgradeSpiritStat(SpiritStatType type)
-    {
-        Stat currentStat = Spirit.GetStat(type);
-        return currentStat.upgradeCost < chiController.getChiCount();
-    }
-
-    public void TryUpgradeBodyStat(BodyStatType type)
-    {
-        Stat currentStat = Body.GetStat(type);
-        if (currentStat.upgradeCost < chiController.getChiCount())
+        foreach (StatTypes statType in Enum.GetValues(typeof(StatTypes)))
         {
-            UpgradeBodyStat(type);
+            stats.Add(statType, new Stat());
         }
     }
 
-    public void TryUpgradeSpiritStat(SpiritStatType type)
+    public void UpgradeStat(StatTypes type)
     {
-        Stat currentStat = Spirit.GetStat(type);
-        if (currentStat.upgradeCost < chiController.getChiCount())
-        {
-            currentStat.addValue(1);
-            chiController.minusChiCount(currentStat.upgradeCost);
-        }
-    }
-    
-
-    private void UpgradeBodyStat(BodyStatType type)
-    {
-        chiController.minusChiCount(Body.GetStat(type).upgradeCost);
-        Body.GetStat(type).addValue(1);
+        chiController.minusChiCount(stats[type].upgradeCost);
+        stats[type].addValue(1);
+        onStatChange.Invoke(type, stats[type]);
         
         switch(type)
         {
-            case BodyStatType.TENDONS:
+            case StatTypes.TENDONS:
                 baseDefense += 1;
                 baseAttack += 0.5;
                 break;
-            case BodyStatType.ORGAN:
+            case StatTypes.ORGAN:
                 maxHp += 10;
                 maxMana += 10;
                 break;
-            case BodyStatType.MUSCLES:
+            case StatTypes.MUSCLES:
                 baseAttack += 1;
                 baseSpeed += 0.5;
                 break;
-            case BodyStatType.REACTION:
+            case StatTypes.REACTION:
                 baseDefense += 1;
                 baseSpeed += 0.5;
                 break;
-            case BodyStatType.SKELETON:
+            case StatTypes.SKELETON:
                 baseDefense += 1;
                 baseAttack += 0.5;
                 break;
         }
+        
     }
 
 }

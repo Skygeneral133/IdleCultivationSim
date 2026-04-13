@@ -29,14 +29,14 @@ public class ChiController : MonoBehaviour
     {
         chiCount += value;
         chiCountText.text = chiCount.ToString();
-        OnChiChanged?.Invoke(value);
+        OnChiChanged?.Invoke(chiCount);
     }
 
     public void minusChiCount(float value)
     {
         chiCount -= value;
         chiCountText.text = chiCount.ToString();
-        OnChiChanged?.Invoke(value);
+        OnChiChanged?.Invoke(chiCount);
     }
 
     void UpdateChiCountProgress()

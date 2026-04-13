@@ -1,106 +1,44 @@
-﻿using TMPro;
+﻿using Enums;
+using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class StatsUI : MonoBehaviour
 {
-        public PlayerStats playerStats;
-        public Button[] bodyStatButtons;
-        public TextMeshProUGUI[] statBodyTexts;
-        public Button[] spiritStatButtons;
-        public TextMeshProUGUI[] statSpritTexts;
-        
-        void Start()
-        {
-                int i = 0;
+    [SerializeField] private Button addButton;
+    [SerializeField] private TextMeshProUGUI statText;
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private StatTypes statType;
+    private Stat thisButtonStat;
 
-                foreach (BodyStatType type in System.Enum.GetValues(typeof(BodyStatType)))
-                {
-                        BodyStatType capturedType = type;
-                        bodyStatButtons[i].onClick.AddListener(() => OnBodyUpgradeClicked(capturedType));
-                        statBodyTexts[i].text = playerStats.Body.GetStat(capturedType).getStatValue().ToString();
-                        i++;
-                }
-                
-                int j = 0;
-                
-                foreach (SpiritStatType type in System.Enum.GetValues(typeof(SpiritStatType)))
-                {
-                        SpiritStatType capturedType = type;
-                        spiritStatButtons[j].onClick.AddListener(() => OnSpiritUpgradeClicked(capturedType));
-                        statSpritTexts[j].text = playerStats.Spirit.GetStat(capturedType).getStatValue().ToString();
-                        j++;
-                }
-                
-                ChiController.OnChiChanged += HandleChiChanged;
-                CheckButtonsInteractable();
-                RefreshUI();
-        }
+    public void Start()
+    {
+        playerStats.onStatChange += HandleStatChange;
+        ChiController.OnChiChanged += CheckButtonEnabled;
+        addButton.onClick.AddListener(() => playerStats.UpgradeStat(statType));
+        thisButtonStat = playerStats.stats[statType];
+    }
 
-        private void OnBodyUpgradeClicked(BodyStatType type)
+    private void HandleStatChange(StatTypes statType,  Stat stat)
+    {
+        if (statType != this.statType)
         {
-                playerStats.TryUpgradeBodyStat(type);
+            return;
         }
-        
-        private void OnSpiritUpgradeClicked(SpiritStatType type)
-        {
-                playerStats.TryUpgradeSpiritStat(type);
-        }
-        
-        public void RefreshUI()
-        {
-                
-                int i = 0;
-                foreach (BodyStatType type in System.Enum.GetValues(typeof(BodyStatType)))
-                { 
-                        BodyStatType capturedType = type;
-                        statBodyTexts[i].text = playerStats.Body.GetStat(capturedType).getStatValue().ToString();
-                        i++;
-                }
+        statText.text = stat.getStatValue().ToString();
+    }
 
-                int j = 0;
-                
-                foreach (SpiritStatType type in System.Enum.GetValues(typeof(SpiritStatType)))
-                {
-                        SpiritStatType capturedType = type;
-                        statSpritTexts[j].text = playerStats.Spirit.GetStat(capturedType).getStatValue().ToString();
-                        j++;
-                }
-        }
-        
-        private void CheckButtonsInteractable()
+    private void CheckButtonEnabled(float currentChi)
+    {
+        if (currentChi >= thisButtonStat.upgradeCost)
         {
-                int i = 0;
-                foreach (BodyStatType type in System.Enum.GetValues(typeof(BodyStatType)))
-                {
-                        if (!playerStats.CanUpgradeBodyStat(type))
-                        {
-                                bodyStatButtons[i].interactable = false;
-                        }
-                        else
-                        {
-                                bodyStatButtons[i].interactable = true;
-                        }
-                        i++;
-                }
-                int j = 0;
-                foreach (SpiritStatType type in System.Enum.GetValues(typeof(SpiritStatType)))
-                {
-                        if (!playerStats.CanUpgradeSpiritStat(type))
-                        {
-                                spiritStatButtons[j].interactable = false;
-                        }
-                        else
-                        {
-                                spiritStatButtons[j].interactable = true;
-                        }
-                        j++;
-                }
+            addButton.interactable = true;
         }
-        
-        private void HandleChiChanged(float chi)
+        else
         {
-                CheckButtonsInteractable();
-                RefreshUI();
+            addButton.interactable = false;
         }
+    }
 }

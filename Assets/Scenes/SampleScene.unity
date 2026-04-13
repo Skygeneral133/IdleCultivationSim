@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 62342094}
   - component: {fileID: 62342096}
   - component: {fileID: 62342095}
+  - component: {fileID: 62342097}
   m_Layer: 5
   m_Name: muscles
   m_TagString: Untagged
@@ -257,6 +258,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 62342093}
   m_CullTransparentMesh: 1
+--- !u!114 &62342097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62342093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 1917253699}
+  statText: {fileID: 127963039}
+  playerStats: {fileID: 1443828560}
+  statType: 3
 --- !u!1 &111123485
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +819,7 @@ GameObject:
   - component: {fileID: 324543682}
   - component: {fileID: 324543684}
   - component: {fileID: 324543683}
+  - component: {fileID: 324543685}
   m_Layer: 5
   m_Name: Earth
   m_TagString: Untagged
@@ -929,6 +947,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324543681}
   m_CullTransparentMesh: 1
+--- !u!114 &324543685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324543681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 1720832202}
+  statText: {fileID: 1169286367}
+  playerStats: {fileID: 1443828560}
+  statType: 7
 --- !u!1 &469137046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,6 +1402,7 @@ GameObject:
   - component: {fileID: 540615947}
   - component: {fileID: 540615949}
   - component: {fileID: 540615948}
+  - component: {fileID: 540615950}
   m_Layer: 5
   m_Name: tendon
   m_TagString: Untagged
@@ -1497,6 +1532,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540615946}
   m_CullTransparentMesh: 1
+--- !u!114 &540615950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540615946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 148086852}
+  statText: {fileID: 1256949288}
+  playerStats: {fileID: 1443828560}
+  statType: 0
 --- !u!1 &571527440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2109,7 @@ GameObject:
   - component: {fileID: 884321547}
   - component: {fileID: 884321549}
   - component: {fileID: 884321548}
+  - component: {fileID: 884321550}
   m_Layer: 5
   m_Name: Metal
   m_TagString: Untagged
@@ -2185,6 +2237,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884321546}
   m_CullTransparentMesh: 1
+--- !u!114 &884321550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884321546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 1698803858}
+  statText: {fileID: 534659744}
+  playerStats: {fileID: 1443828560}
+  statType: 9
 --- !u!1 &886582415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2385,7 @@ GameObject:
   - component: {fileID: 890988213}
   - component: {fileID: 890988215}
   - component: {fileID: 890988214}
+  - component: {fileID: 890988216}
   m_Layer: 5
   m_Name: skeleton
   m_TagString: Untagged
@@ -2444,6 +2513,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890988212}
   m_CullTransparentMesh: 1
+--- !u!114 &890988216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890988212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 469137050}
+  statText: {fileID: 1267809648}
+  playerStats: {fileID: 1443828560}
+  statType: 1
 --- !u!1 &929615119
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2540,7 @@ GameObject:
   - component: {fileID: 929615120}
   - component: {fileID: 929615122}
   - component: {fileID: 929615121}
+  - component: {fileID: 929615123}
   m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
@@ -2584,6 +2670,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 929615119}
   m_CullTransparentMesh: 1
+--- !u!114 &929615123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929615119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 1718774821}
+  statText: {fileID: 296525376}
+  playerStats: {fileID: 1443828560}
+  statType: 5
 --- !u!1 &935538700
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +2955,7 @@ GameObject:
   - component: {fileID: 1132512420}
   - component: {fileID: 1132512422}
   - component: {fileID: 1132512421}
+  - component: {fileID: 1132512423}
   m_Layer: 5
   m_Name: Water
   m_TagString: Untagged
@@ -2980,6 +3083,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132512419}
   m_CullTransparentMesh: 1
+--- !u!114 &1132512423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132512419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 738150022}
+  statText: {fileID: 1629671795}
+  playerStats: {fileID: 1443828560}
+  statType: 6
 --- !u!1 &1169286365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3773,7 +3892,6 @@ GameObject:
   - component: {fileID: 1443828559}
   - component: {fileID: 1443828558}
   - component: {fileID: 1443828560}
-  - component: {fileID: 1443828561}
   m_Layer: 0
   m_Name: centralController
   m_TagString: Untagged
@@ -3831,43 +3949,6 @@ MonoBehaviour:
   baseDefense: 0
   baseSpeed: 0
   chiController: {fileID: 1443828558}
---- !u!114 &1443828561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443828557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
-  playerStats: {fileID: 1443828560}
-  bodyStatButtons:
-  - {fileID: 148086852}
-  - {fileID: 469137050}
-  - {fileID: 935538704}
-  - {fileID: 1917253699}
-  - {fileID: 670653396}
-  statBodyTexts:
-  - {fileID: 1256949288}
-  - {fileID: 1267809648}
-  - {fileID: 882673007}
-  - {fileID: 127963039}
-  - {fileID: 1307696848}
-  spiritStatButtons:
-  - {fileID: 1718774821}
-  - {fileID: 738150022}
-  - {fileID: 1720832202}
-  - {fileID: 886582417}
-  - {fileID: 1698803858}
-  statSpritTexts:
-  - {fileID: 296525376}
-  - {fileID: 1629671795}
-  - {fileID: 1169286367}
-  - {fileID: 1501515662}
-  - {fileID: 534659744}
 --- !u!1 &1487191836
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,6 +4035,7 @@ GameObject:
   - component: {fileID: 1488303164}
   - component: {fileID: 1488303166}
   - component: {fileID: 1488303165}
+  - component: {fileID: 1488303167}
   m_Layer: 5
   m_Name: reaction
   m_TagString: Untagged
@@ -4083,6 +4165,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488303163}
   m_CullTransparentMesh: 1
+--- !u!114 &1488303167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488303163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 670653396}
+  statText: {fileID: 1307696848}
+  playerStats: {fileID: 1443828560}
+  statType: 4
 --- !u!1 &1501515660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,6 +4329,7 @@ GameObject:
   - component: {fileID: 1559613365}
   - component: {fileID: 1559613367}
   - component: {fileID: 1559613366}
+  - component: {fileID: 1559613368}
   m_Layer: 5
   m_Name: Wood
   m_TagString: Untagged
@@ -4358,6 +4457,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559613364}
   m_CullTransparentMesh: 1
+--- !u!114 &1559613368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559613364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 886582417}
+  statText: {fileID: 1501515662}
+  playerStats: {fileID: 1443828560}
+  statType: 8
 --- !u!1 &1563943330
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +5074,7 @@ GameObject:
   - component: {fileID: 1912709580}
   - component: {fileID: 1912709582}
   - component: {fileID: 1912709581}
+  - component: {fileID: 1912709583}
   m_Layer: 5
   m_Name: organs
   m_TagString: Untagged
@@ -5086,6 +5202,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912709579}
   m_CullTransparentMesh: 1
+--- !u!114 &1912709583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912709579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad173213e1b6448db3e1ef7a62d2b8eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatsUI
+  addButton: {fileID: 935538704}
+  statText: {fileID: 882673007}
+  playerStats: {fileID: 1443828560}
+  statType: 2
 --- !u!1 &1917253695
 GameObject:
   m_ObjectHideFlags: 0
