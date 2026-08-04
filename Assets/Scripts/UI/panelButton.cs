@@ -11,22 +11,16 @@ namespace UI
 
         private void Start()
         {
-            button.onClick.AddListener(() =>
-                {
-                    panelController.ShowOnly(panel);
-                }
+            button.onClick.AddListener(() => { panelController.ShowOnly(panel); }
             );
         }
+
         private void Update()
         {
             if (panel.activeSelf)
-            {
                 button.interactable = false;
-            }
-            else 
-            {
+            else
                 button.interactable = true;
-            }
         }
     }
 }

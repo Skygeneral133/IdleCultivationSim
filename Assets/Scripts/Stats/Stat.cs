@@ -1,20 +1,15 @@
-﻿using TMPro;
-using UnityEngine.UI;
-
-
-public class Stat
+﻿public class Stat
 {
-    private int Value = 1;
-    public float upgradeCost = 1;
-    
-    public void addValue(int  value)
+    public float UpgradeCost = 1;
+    private int _value = 1;
+
+    public void AddValue(int value)
     {
-        this.Value += value;
+        _value += value;
     }
 
-    public int getStatValue()
+    public int GetStatValue()
     {
-        return Value;
+        return _value;
     }
-    
 }

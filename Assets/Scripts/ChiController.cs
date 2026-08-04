@@ -1,56 +1,56 @@
 using System;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class ChiController : MonoBehaviour
 {
-    [SerializeField]
-    private float chiCount;
+    [SerializeField] private float chiCount;
 
-    public static event Action<float> OnChiChanged;
     public TextMeshProUGUI chiCountText;
     public float chiProgressRate;
     public ProgressBar chiProgress;
     public int chiIncreaseRate;
-    
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         chiCountText.text = chiCount.ToString();
-        InvokeRepeating("UpdateChiCountProgress", 0f, 1.0f);
+        Ticker.OnTick += delegate { UpdateChiCountProgress(); };
     }
 
-    public float getChiCount()
+    public static event Action<float> OnChiChanged;
+
+    public float GetChiCount()
     {
         return chiCount;
     }
-    
-    public void addChiCount(float value)
+
+    public void AddChiCount(float value)
     {
         chiCount += value;
         chiCountText.text = chiCount.ToString();
         OnChiChanged?.Invoke(chiCount);
     }
 
-    public void minusChiCount(float value)
+    public void MinusChiCount(float value)
     {
         chiCount -= value;
         chiCountText.text = chiCount.ToString();
         OnChiChanged?.Invoke(chiCount);
     }
 
-    void UpdateChiCountProgress()
+    private void UpdateChiCountProgress()
     {
         chiProgress.current += chiProgressRate;
         chiProgress.GetCurrentFill();
         CheckIfChiComplete();
     }
 
-    void CheckIfChiComplete()
+    private void CheckIfChiComplete()
     {
         if (chiProgress.current >= chiProgress.maximum)
         {
-            addChiCount(chiIncreaseRate);
+            AddChiCount(chiIncreaseRate);
             chiProgress.current = 0;
             chiProgress.GetCurrentFill();
             chiCountText.text = chiCount.ToString();

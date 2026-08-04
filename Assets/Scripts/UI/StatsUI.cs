@@ -1,8 +1,6 @@
 ﻿using Enums;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class StatsUI : MonoBehaviour
@@ -15,30 +13,23 @@ public class StatsUI : MonoBehaviour
 
     public void Start()
     {
-        playerStats.onStatChange += HandleStatChange;
+        playerStats.OnStatChange += HandleStatChange;
         ChiController.OnChiChanged += CheckButtonEnabled;
         addButton.onClick.AddListener(() => playerStats.UpgradeStat(statType));
-        thisButtonStat = playerStats.stats[statType];
+        thisButtonStat = playerStats.Stats[statType];
     }
 
-    private void HandleStatChange(StatTypes statType,  Stat stat)
+    private void HandleStatChange(StatTypes statType, Stat stat)
     {
-        if (statType != this.statType)
-        {
-            return;
-        }
-        statText.text = stat.getStatValue().ToString();
+        if (statType != this.statType) return;
+        statText.text = stat.GetStatValue().ToString();
     }
 
     private void CheckButtonEnabled(float currentChi)
     {
-        if (currentChi >= thisButtonStat.upgradeCost)
-        {
+        if (currentChi >= thisButtonStat.UpgradeCost)
             addButton.interactable = true;
-        }
         else
-        {
             addButton.interactable = false;
-        }
     }
 }

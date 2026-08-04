@@ -3,60 +3,57 @@ using System.Collections.Generic;
 using Enums;
 using UnityEngine;
 
-
-
 public class PlayerStats : MonoBehaviour
 {
-    public int maxHp = 10;
-    public int maxMana = 10;
-    
-    public double baseAttack = 1;
-    public double baseDefense = 1;
-    public double baseSpeed = 1;
-    
-    public Dictionary<StatTypes, Stat> stats = new Dictionary<StatTypes, Stat>();
-    public Action<StatTypes, Stat> onStatChange;
+    public double maxHp = 10;
+    public double currentHp;
+    public double maxMana = 10;
+    public double currentMana;
+
+    public double attack = 1;
+    public double defense = 1;
+    public double speed = 1;
+
+    public double[] battleStats = new double[4];
 
     public ChiController chiController;
+    public Action<StatTypes, Stat> OnStatChange;
+
+    public Dictionary<StatTypes, Stat> Stats = new();
 
     public void Awake()
     {
-        foreach (StatTypes statType in Enum.GetValues(typeof(StatTypes)))
-        {
-            stats.Add(statType, new Stat());
-        }
+        foreach (StatTypes statType in Enum.GetValues(typeof(StatTypes))) Stats.Add(statType, new Stat());
     }
 
     public void UpgradeStat(StatTypes type)
     {
-        chiController.minusChiCount(stats[type].upgradeCost);
-        stats[type].addValue(1);
-        onStatChange.Invoke(type, stats[type]);
-        
-        switch(type)
+        chiController.MinusChiCount(Stats[type].UpgradeCost);
+        Stats[type].AddValue(1);
+        OnStatChange.Invoke(type, Stats[type]);
+
+        switch (type)
         {
-            case StatTypes.TENDONS:
-                baseDefense += 1;
-                baseAttack += 0.5;
+            case StatTypes.Tendons:
+                defense += 1;
+                attack += 0.5;
                 break;
-            case StatTypes.ORGAN:
+            case StatTypes.Organ:
                 maxHp += 10;
                 maxMana += 10;
                 break;
-            case StatTypes.MUSCLES:
-                baseAttack += 1;
-                baseSpeed += 0.5;
+            case StatTypes.Muscles:
+                attack += 1;
+                speed += 0.5;
                 break;
-            case StatTypes.REACTION:
-                baseDefense += 1;
-                baseSpeed += 0.5;
+            case StatTypes.Reaction:
+                defense += 1;
+                speed += 0.5;
                 break;
-            case StatTypes.SKELETON:
-                baseDefense += 1;
-                baseAttack += 0.5;
+            case StatTypes.Skeleton:
+                defense += 1;
+                attack += 0.5;
                 break;
         }
-        
     }
-
 }

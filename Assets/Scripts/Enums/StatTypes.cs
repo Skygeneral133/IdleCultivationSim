@@ -3,28 +3,30 @@
     public enum StatTypes
     {
         //Body
-        TENDONS,
-        SKELETON,
-        ORGAN,
-        MUSCLES,
-        REACTION,
+        Tendons,
+        Skeleton,
+        Organ,
+        Muscles,
+        Reaction,
+
         //Spirits
-        FIRE,
-        WATER,
-        EARTH,
-        WOOD,
-        METAL
+        Fire,
+        Water,
+        Earth,
+        Wood,
+        Metal
     }
 
     public static class StatTypesExtensions
     {
         public static bool IsBodyStat(StatTypes type)
         {
-            return type <= StatTypes.REACTION;
+            return type <= StatTypes.Reaction;
         }
+
         public static bool IsSpritStat(StatTypes type)
         {
-            return type > StatTypes.REACTION;
+            return type > StatTypes.Reaction;
         }
     }
 }
