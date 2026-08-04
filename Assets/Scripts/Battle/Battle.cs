@@ -1,5 +1,7 @@
+using Map;
 using Monsters;
 using UnityEngine;
+using Map;
 
 public class Battle : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class Battle : MonoBehaviour
     private float _enemyHitProgress;
     private Monster _player;
     private float _playerHitProgress;
+    public Location BattleLocation;
 
     public Battle()
     {
@@ -33,5 +36,6 @@ public class Battle : MonoBehaviour
 
     public void TriggerBattleEnd(bool didPlayerWin)
     {
+        
     }
 }
