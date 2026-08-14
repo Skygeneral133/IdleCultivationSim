@@ -2,15 +2,16 @@ using Map;
 using Monsters;
 using UnityEngine;
 using Map;
+using Map.Battle;
 
-public class Battle : MonoBehaviour
+public class Battle
 {
     private const float BattleHit = 100f;
     private Monster _enemy;
     private float _enemyHitProgress;
-    private Monster _player;
+    private PlayerBattleEntity _player;
     private float _playerHitProgress;
-    public Location BattleLocation;
+    public HostileLocation location;
 
     public Battle()
     {
@@ -36,6 +37,24 @@ public class Battle : MonoBehaviour
 
     public void TriggerBattleEnd(bool didPlayerWin)
     {
-        
+        if (didPlayerWin)
+        {
+            foreach (var kvp in _enemy.DropList)
+            {
+                var num = Random.Range(0, 100);
+                if (kvp.Value <= num)
+                {
+                    _player.Player.Inventory.items.Add(kvp.Key);
+                }
+            }
+        }
+    }
+
+    public void InitBatle()
+    {
+        if (location is not null)
+        {
+            
+        }
     }
 }

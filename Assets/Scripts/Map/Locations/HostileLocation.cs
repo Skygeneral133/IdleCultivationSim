@@ -1,9 +1,10 @@
-﻿using Monsters;
+﻿using System.Collections.Generic;
+using Monsters;
 
 namespace Map
 {
     public class HostileLocation
     {
-        public Monster[] monsters;
+        public Dictionary<Monster, float> MonsterList;
     }
 }

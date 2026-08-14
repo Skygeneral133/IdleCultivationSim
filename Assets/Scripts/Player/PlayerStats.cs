@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public double maxHp = 10;
-    public double currentHp;
-    public double maxMana = 10;
-    public double currentMana;
+    public float maxHp = 10;
+    public float currentHp;
+    public float maxMana = 10;
+    public float currentMana;
 
-    public double attack = 1;
-    public double defense = 1;
-    public double speed = 1;
-
-    public double[] battleStats = new double[4];
+    public float attack = 1;
+    public float defense = 1;
+    public float speed = 1;
 
     public ChiController chiController;
     public Action<StatTypes, Stat> OnStatChange;
@@ -35,24 +33,24 @@ public class PlayerStats : MonoBehaviour
         switch (type)
         {
             case StatTypes.Tendons:
-                defense += 1;
-                attack += 0.5;
+                defense += 1f;
+                attack += 0.5f;
                 break;
             case StatTypes.Organ:
-                maxHp += 10;
-                maxMana += 10;
+                maxHp += 10f;
+                maxMana += 10f;
                 break;
             case StatTypes.Muscles:
-                attack += 1;
-                speed += 0.5;
+                attack += 1f;
+                speed += 0.5f;
                 break;
             case StatTypes.Reaction:
-                defense += 1;
-                speed += 0.5;
+                defense += 1f;
+                speed += 0.5f;
                 break;
             case StatTypes.Skeleton:
-                defense += 1;
-                attack += 0.5;
+                defense += 1f;
+                attack += 0.5f;
                 break;
         }
     }
