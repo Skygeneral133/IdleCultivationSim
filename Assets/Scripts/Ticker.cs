@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Ticker : MonoBehaviour
 {
-    public const float TickTimerMax = .2f;
+    private const float TickTimerMax = .2f;
     private int _tick;
     private float _tickTimer;
 

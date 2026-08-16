@@ -14,7 +14,7 @@ public class ChiController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        chiCountText.text = chiCount.ToString();
+        if (chiCountText) chiCountText.text = chiCount.ToString();
         Ticker.OnTick += delegate { UpdateChiCountProgress(); };
     }
 

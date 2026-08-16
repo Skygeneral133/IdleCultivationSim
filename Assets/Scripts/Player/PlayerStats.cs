@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
     public float maxHp = 10;
     public float currentHp;
+    public float hpRegen;
     public float maxMana = 10;
     public float currentMana;
 
@@ -22,6 +23,11 @@ public class PlayerStats : MonoBehaviour
     public void Awake()
     {
         foreach (StatTypes statType in Enum.GetValues(typeof(StatTypes))) Stats.Add(statType, new Stat());
+    }
+
+    public void addHp()
+    {
+        if (currentHp < maxHp) currentHp += hpRegen;
     }
 
     public void UpgradeStat(StatTypes type)

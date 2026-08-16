@@ -1,8 +1,9 @@
 using Map;
 using Monsters;
 using UnityEngine;
-using Map;
-using Map.Battle;
+using Player;
+using TMPro;
+using UnityEngine.UI;
 
 public class Battle
 {
@@ -12,6 +13,9 @@ public class Battle
     private PlayerBattleEntity _player;
     private float _playerHitProgress;
     public HostileLocation location;
+    public Image MonsterImage;
+    public TextMeshProUGUI MonsterName;
+    private bool _isBattle;
 
     public Battle()
     {
@@ -20,13 +24,17 @@ public class Battle
 
     public void BattleTick()
     {
-        _enemyHitProgress += _enemy.attackSpeed;
-        _playerHitProgress += _player.attackSpeed;
+        _player.Stats.addHp();
+        if (_isBattle)
+        {
+            _enemyHitProgress += _enemy.attackSpeed;
+            _playerHitProgress += _player.attackSpeed;
 
-        if (_playerHitProgress > BattleHit) TriggerAttack(_player, _enemy);
-        if (_enemy.currentHp <= 0) TriggerBattleEnd(true);
-        if (_enemyHitProgress > BattleHit) TriggerAttack(_enemy, _player);
-        if (_player.currentHp <= 0) TriggerBattleEnd(false);
+            if (_playerHitProgress > BattleHit) TriggerAttack(_player, _enemy);
+            if (_enemy.currentHp <= 0) TriggerBattleEnd(true);
+            if (_enemyHitProgress > BattleHit) TriggerAttack(_enemy, _player);
+            if (_player.currentHp <= 0) TriggerBattleEnd(false);
+        }
     }
 
     public void TriggerAttack(Monster guyAttacking, Monster guyDefending)
@@ -48,13 +56,22 @@ public class Battle
                 }
             }
         }
+        else
+        {
+            _isBattle = false;
+        }
+        InitBatle();
     }
+    
 
     public void InitBatle()
     {
         if (location is not null)
         {
-            
+            _enemy = location.getRandomEnemy();
+            _player.reset();
+            MonsterImage.sprite = _enemy.sprite;
+            MonsterName.text = _enemy.name;
         }
     }
 }
