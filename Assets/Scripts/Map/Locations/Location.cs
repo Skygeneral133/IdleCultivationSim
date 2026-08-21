@@ -2,7 +2,7 @@
 
 namespace Map
 {
-    public class Location : ScriptableObject
+    public abstract class Location : ScriptableObject
     {
         public string locationName;
         public Sprite sprite;

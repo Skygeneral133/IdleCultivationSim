@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c07af5edda40edaced886d61acc6d7, type: 3}
+  m_Name: TestLocation
+  m_EditorClassIdentifier: Assembly-CSharp::Map.HostileLocation
+  locationName: TestLocation
+  sprite: {fileID: 0}
+  defaultMonster: {fileID: 11400000, guid: 01be1eeb790a24c4ca812757e1088304, type: 2}
+  InitialMonsterList:
+  - {fileID: 11400000, guid: 01be1eeb790a24c4ca812757e1088304, type: 2}
+  InitialChanceList:
+  - 100

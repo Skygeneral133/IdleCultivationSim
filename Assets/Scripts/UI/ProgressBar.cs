@@ -4,13 +4,9 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     public float maximum;
-    public float current;
+    public float current = 0;
     public Image mask;
-
-    private void Start()
-    {
-        current = 0;
-    }
+    
 
     public void GetCurrentFill()
     {

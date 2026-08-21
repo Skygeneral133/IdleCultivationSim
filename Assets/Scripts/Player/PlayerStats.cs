@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enums;
+using Items;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -14,21 +15,19 @@ public class PlayerStats : MonoBehaviour
     public float attack = 1;
     public float defense = 1;
     public float speed = 1;
+    public Inventory inventory;
 
     public ChiController chiController;
     public Action<StatTypes, Stat> OnStatChange;
-
     public Dictionary<StatTypes, Stat> Stats = new();
 
     public void Awake()
     {
         foreach (StatTypes statType in Enum.GetValues(typeof(StatTypes))) Stats.Add(statType, new Stat());
+        currentHp = maxHp;
     }
 
-    public void addHp()
-    {
-        if (currentHp < maxHp) currentHp += hpRegen;
-    }
+
 
     public void UpgradeStat(StatTypes type)
     {

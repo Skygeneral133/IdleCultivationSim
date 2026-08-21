@@ -2,6 +2,7 @@
 
 namespace Items
 {
+    [CreateAssetMenu(fileName = "NewMonster", menuName = "Game/Item")]
     public class Item : ScriptableObject
     {
         public Sprite sprite;
